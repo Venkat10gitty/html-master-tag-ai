@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vapi Support Agent Demo</title>
+  </head>
+  <body>
+    <div id="app"><h1><center>Hi there Welcome to Arlanto's AI voice assistant</center></h1></div>
+
+    <script>
+      const assistant = "f4dc53e5-cc59-4d65-bf19-020da5de764c";
+
+      const buttonConfig = {
+        position: "bottom-right",
+        offset: "40px",
+        width: "50px",
+        height: "50px",
+        idle: {
+          color: `rgb(93, 254, 202)`,
+          type: "round",
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone.svg`,
+        },
+        loading: {
+          color: `rgb(93, 124, 202)`,
+          type: "round",
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/loader-2.svg`,
+        },
+        active: {
+          color: `rgb(255, 0, 0)`,
+          type: "round",
+          icon: `https://unpkg.com/lucide-static@0.321.0/icons/phone-off.svg`,
+        },
+      };
+
+      (function (d, t) {
+        var g = document.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+
+        g.src = "dist/assets/index.js";
+        // g.src =
+        //   "https://cdn.jsdelivr.net/gh/VapiAI/vapi-support-sdk/dist/assets/index.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+
+        g.onload = function () {
+          const vapi = window.vapiSDK.run({
+            apiKey: "bc258fb2-8007-4e7d-a546-f248ecf991a7",
+            assistant: assistant,
+            // config: buttonConfig,
+          });
+        };
+      })(document, "script");
+    </script>
+  </body>
+</html>
